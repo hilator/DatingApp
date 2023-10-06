@@ -4,15 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("[controller]")] // [Route("[api/controller]")]/api/users
-    public class UsersController
+    [Authorize]
+    public class UsersController:BaseApiController
     {
+        
         private readonly DataContext _context;
 
         public UsersController(DataContext context)
